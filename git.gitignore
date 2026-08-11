@@ -1,0 +1,26 @@
+# Ambiente virtual
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Dados (pesados, nao devem ir pro repositorio de codigo)
+images/
+individual/
+processed/
+processed/images/
+processed/masks/
+
+# Saidas geradas (recrie rodando os scripts -- nao precisa versionar)
+eda_output/
+treino_output/
+inferencia_output/
+
+# Checkpoints de modelo (geralmente pesados demais pro git normal)
+*.pt
+*.pth
+
+# Arquivos do sistema / editor
+.DS_Store
+.vscode/
+*.log
