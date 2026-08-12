@@ -30,6 +30,27 @@ inferencia.py                # roda o modelo em imagens sem anotacao + mede temp
 .gitignore
 ```
 
+## Estrutura de pastas (dados)
+
+Os scripts esperam algumas pastas de dados dentro da raiz do projeto, no
+mesmo nível dos arquivos `.py`. Essas pastas não vão pro repositório (estão
+no `.gitignore`) — quem for rodar o projeto precisa recriá-las localmente,
+com os dados recebidos por pendrive/link: uma pasta com as radiografias
+originais e outra com um `.coco.json` por paciente/exame (as anotações). A
+partir delas, o `preprocess_batch.py` gera sozinho as versões processadas
+das imagens e as máscaras, e o `split_por_paciente.py` gera sozinho os
+arquivos de split. Os scripts de treino e avaliação também criam suas
+próprias pastas de saída. Há ainda uma pasta separada com as imagens sem
+anotação fornecidas no desafio, usada pelo `inferencia.py`.
+
+> **OBS:** cada script tem, logo no topo do arquivo, um bloco marcado como
+> `# ------------------- CONFIG -------------------`, com os caminhos das
+> pastas em variáveis (ex: `IMAGES_DIR`, `PROCESSED_MASKS_DIR`). É ali,
+> **e só ali**, que você precisa editar o caminho pra apontar pra onde
+> ficam seus dados na sua máquina antes de rodar. No `treinar_modelo_colab.ipynb`,
+> o mesmo bloco fica na célula de configuração, apontando pra pasta do
+> projeto dentro do seu Google Drive.
+
 ## Requisitos
 
 ```bash
